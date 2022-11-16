@@ -10,13 +10,17 @@
   </head>
 
   <body>
+    <div class='bar'>
+    <h1>Christine's Music App 😜🎶</h1>
     <%if logged_in? %>
-    <h2>Welcome, <%= current_user.email %></h2>
+    <h2 class="welcome">Welcome, <%= current_user.email %></h2>
     <form action="<%= session_url%>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="_method" value="DELETE">
-      <button>Log Out</button>
+      <button class="button">Log Out</button>
     </form>
     <%end%>
+    <div>
 
     <%= yield %>
   </body>
